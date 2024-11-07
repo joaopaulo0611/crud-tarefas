@@ -1,0 +1,50 @@
+
+###
+
+GET http://localhost:3333/tarefas
+
+###
+
+
+###
+
+GET http://localhost:3333/tarefas/concluidas
+
+###
+
+GET http://localhost:3333/tarefas/060212ad-a79f-4aca-888d-74f0c18168bb
+
+###
+
+POST http://localhost:3333/tarefas
+Content-Type: application/json
+
+{
+    "titulo": "Carregar meu celular",
+    "descricao": "Tenho que colocar meu celular para carregar",
+    "cor": "#FFFFFF",
+    "corTexto": "#000",
+    "concluido": "true"
+}
+
+###
+
+PUT http://localhost:3333/tarefas/6b9c8ca2-3b7e-46d4-9533-85da2c1b8c21
+Content-Type: application/json
+
+{
+    "titulo": "Lavar o carro",
+    "descricao": "Assim que chegar em casa, tenho que lavar meu carro!",
+    "cor": "#000",
+    "corTexto": "#fff",
+    "concluido": "false"
+    
+}
+
+###
+PUT http://localhost:3333/concluir/6b9c8ca2-3b7e-46d4-9533-85da2c1b8c21
+
+
+###
+
+DELETE http://localhost:3333/tarefas/16f5b61d-3702-4ee4-8ec2-b5c6ddcd0956

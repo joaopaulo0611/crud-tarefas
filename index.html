@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestor de Tarefas</h1>
+
+        <!-- Formulário de Adicionar Tarefa -->
+        <form id="task-form">
+            <input type="text" id="titulo" placeholder="Título da tarefa" required>
+            <textarea id="descricao" placeholder="Descrição" required></textarea>
+            <button type="submit">Adicionar Tarefa</button>
+        </form>
+
+        <div id="tarefas-container">
+            <h2>Tarefas Pendentes</h2>
+            <ul id="tarefas-list"></ul>
+        </div>
+
+        <div id="concluidas-container">
+            <h2>Tarefas Concluídas</h2>
+            <ul id="concluidas-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
