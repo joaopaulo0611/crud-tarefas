@@ -1,10 +1,11 @@
 {
+  "type": "module",
   "name": "crud-back",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon /index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,6 @@
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
     "pg": "^8.16.0",
-    "postgres": "^3.4.5"
+    "postgres": "^3.4.6"
   }
 }
