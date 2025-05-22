@@ -2,7 +2,15 @@ html{
   height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(-68.15deg,  #77cbeb,#5ce1e6);
+  background: linear-gradient(-68.15deg,  #d4d8da,#bcc3c4);
+}
+.div-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.h1-body{
+    text-align: center;
 }
 .div-container-main{
     display: grid;
@@ -10,6 +18,7 @@ html{
 }
 .div-inputs{
     display: grid;
+    margin-top: 10%;
 }
 .div-input-titulo{
     padding: 5px;
@@ -18,18 +27,38 @@ html{
 .input-titulo{
     width: 450px;
     height: 30px;
+    border-radius: 5px;
+    border: rgb(100, 100, 100) solid 2px;
 }
 .div-input-descricao{
-    padding: 5px;
+    padding: 15px 5px 5px 5px;
     width: 450px;
 }
 .input-descricao{
     width: 450px;
     height: 200px;
+    border-radius: 5px;
+    border: rgb(100, 100, 100) solid 2px;
 }
 .input-descricao::placeholder{
     text-align: to;
 }
 .div-btn-adicionar{
     padding: 10px 5px 5px 5px;
+}
+.btn-adicionar{
+    padding: 10px;
+    background-color: rgb(154, 154, 238);
+    border: 0;
+    color: white;
+    font-weight:bold;
+    border-radius: 5px;
+}
+.div-h1-tarefas{
+    border-bottom: solid;
+    width: 500px;
+    text-align: center;
+}
+.div-tarefas{
+    padding: 5px 5px 5px 100px;
 }

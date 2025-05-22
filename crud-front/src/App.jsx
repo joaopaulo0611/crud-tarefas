@@ -55,30 +55,42 @@ function App() {
 
   return (
     <>
-      <div className='div-container-main'>
-        <div className='div-inputs'>
-          <div className='div-input-titulo'>
-            <input type="text" 
-                  name='titulo'
-                  placeholder='Título'
-                  className='input-titulo'
-                  value={tituloTarefa}
-                  onChange={(e) => setTituloTarefa(e.target.value)}
-                  required/>
+    <div className='h1-body'>
+      <h1>Anotações de Tarefas</h1> 
+    </div>
+    <div className='div-body'>
+        <div className='div-container-main'>
+          <div>
           </div>
-          <div className='div-input-descricao'>
-            <input type="text" 
-                  name='descricao'
-                  placeholder='Descrição'
-                  className='input-descricao'
-                  onChange={(e) => setDescricaoTarefa(e.target.value)}
-                  value={descricaoTarefa}
-                  required/>
-          </div>
+          <div className='div-inputs'>
+            <div className='div-input-titulo'>
+              <input type="text" 
+                    name='titulo'
+                    placeholder='Título'
+                    className='input-titulo'
+                    value={tituloTarefa}
+                    onChange={(e) => setTituloTarefa(e.target.value)}
+                    required/>
+            </div>
+            <div className='div-input-descricao'>
+              <input type="text" 
+                    name='descricao'
+                    placeholder='Descrição'
+                    className='input-descricao'
+                    onChange={(e) => setDescricaoTarefa(e.target.value)}
+                    value={descricaoTarefa}
+                    required/>
+            </div>
+        </div>
+        <div className='div-btn-adicionar'>
+          <button className='btn-adicionar'
+                  onClick={adicionarTarefa} >Adicionar</button>
+        </div>
       </div>
-      <div className='div-btn-adicionar'>
-        <button className='btn-adicionar'
-                onClick={adicionarTarefa} >Adicionar</button>
+      <div className='div-tarefas'>
+        <div className='div-h1-tarefas'>
+          <h2>Minhas Tarefas</h2>
+        </div>
       </div>
     </div>
     </>
