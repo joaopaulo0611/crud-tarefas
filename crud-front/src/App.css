@@ -1,0 +1,35 @@
+html{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-68.15deg,  #77cbeb,#5ce1e6);
+}
+.div-container-main{
+    display: grid;
+    grid-area: 1 / 1 / span 4 / span 1;
+}
+.div-inputs{
+    display: grid;
+}
+.div-input-titulo{
+    padding: 5px;
+    width: 450px;
+}
+.input-titulo{
+    width: 450px;
+    height: 30px;
+}
+.div-input-descricao{
+    padding: 5px;
+    width: 450px;
+}
+.input-descricao{
+    width: 450px;
+    height: 200px;
+}
+.input-descricao::placeholder{
+    text-align: to;
+}
+.div-btn-adicionar{
+    padding: 10px 5px 5px 5px;
+}
