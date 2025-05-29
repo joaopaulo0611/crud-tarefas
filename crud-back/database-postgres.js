@@ -6,7 +6,7 @@ export default class DatabaseTarefas {
 
    // função de listar musicas
    async listTarefas() {
-      return await sql`SELECT * FROM Tarefas`;
+      return await sql`SELECT * FROM Tarefas ORDER BY id_tarefa ASC`;
   }
 
   // função de criar musicas, passando musica como um parametro
