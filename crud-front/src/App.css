@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 html{
   height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(-68.15deg,  #d4d8da,#bcc3c4);
+  background: #5ce1e6;
+  font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
 }
 .div-body{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 3%;
 }
 .h1-body{
     text-align: center;
@@ -53,6 +59,7 @@ html{
     color: white;
     font-weight:bold;
     border-radius: 5px;
+    pointer-events:fill;
 }
 .div-h1-tarefas{
     border-bottom: solid;
@@ -61,4 +68,24 @@ html{
 }
 .div-tarefas{
     padding: 5px 5px 5px 100px;
+}
+.container-tarefas{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.unq-tarefa{
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding-bottom: 1px;
+    width: 450px;
+}
+.tarefa-titulo{
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 800;
+}
+.tarefa-descricao{
+    margin-left: 10px;
+    font-weight: 300;
 }

@@ -1,9 +1,9 @@
 import './App.css'
 import { useState, useEffect, useRef } from 'react'
-import axios from   "axios"
+import axios from "axios"
 
 function App() {
-  
+
   const [idTarefa, setIdTarefa] = useState('')
   const [tituloTarefa, setTituloTarefa] = useState('')
   const [descricaoTarefa, setDescricaoTarefa] = useState('')
@@ -19,8 +19,8 @@ function App() {
       const response = await axios.get(`http://localhost:3000/tarefas`)
       console.log(response.data)
       setTarefas(response.data)
-      console.log(`tarefas: `,tarefas)
-    } catch (error){
+      console.log(`tarefas: `, tarefas)
+    } catch (error) {
       console.error(error)
     }
     finally {
@@ -29,14 +29,14 @@ function App() {
     }
   };
   // Sempre que inicializar a página, rodar essa função
-  useEffect(() =>{
+  useEffect(() => {
     fetchTarefas()
-  },[])
+  }, [])
 
   const adicionarTarefa = async () => {
     setLoading(false);
-    try{
-      const reponse = await axios.post(`http://localhost:3000/tarefas`,{
+    try {
+      const reponse = await axios.post(`http://localhost:3000/tarefas`, {
         titulo_tarefa: tituloTarefa,
         descricao_tarefa: descricaoTarefa
       })
@@ -45,54 +45,71 @@ function App() {
       setTituloTarefa('');
       setDescricaoTarefa('');
     }
-    catch (error){
+    catch (error) {
       console.error('Erro ao adicionar tarefa:', error);
     }
-    finally{
+    finally {
       setLoading(false);
     }
   }
 
   return (
     <>
-    <div className='h1-body'>
-      <h1>Anotações de Tarefas</h1> 
-    </div>
-    <div className='div-body'>
+      <div className='h1-body'>
+        <h1>Anotações de Tarefas</h1>
+      </div>
+      <div className='div-body'>
         <div className='div-container-main'>
           <div>
           </div>
           <div className='div-inputs'>
             <div className='div-input-titulo'>
-              <input type="text" 
-                    name='titulo'
-                    placeholder='Título'
-                    className='input-titulo'
-                    value={tituloTarefa}
-                    onChange={(e) => setTituloTarefa(e.target.value)}
-                    required/>
+              <input type="text"
+                name='titulo'
+                placeholder='Título'
+                className='input-titulo'
+                value={tituloTarefa}
+                onChange={(e) => setTituloTarefa(e.target.value)}
+                required />
             </div>
             <div className='div-input-descricao'>
-              <input type="text" 
-                    name='descricao'
-                    placeholder='Descrição'
-                    className='input-descricao'
-                    onChange={(e) => setDescricaoTarefa(e.target.value)}
-                    value={descricaoTarefa}
-                    required/>
+              <input type="text"
+                name='descricao'
+                placeholder='Descrição'
+                className='input-descricao'
+                onChange={(e) => setDescricaoTarefa(e.target.value)}
+                value={descricaoTarefa}
+                required />
             </div>
+          </div>
+          <div className='div-btn-adicionar'>
+            <button className='btn-adicionar'
+              onClick={adicionarTarefa} >Adicionar</button>
+          </div>
         </div>
-        <div className='div-btn-adicionar'>
-          <button className='btn-adicionar'
-                  onClick={adicionarTarefa} >Adicionar</button>
+        <div className='div-tarefas'>
+          <div className='div-h1-tarefas'>
+            <h2>Minhas Tarefas</h2>
+          </div>
+          {loading ? (
+            <div></div>
+          ) : (
+            <>
+            <div>
+              {tarefas.map((tarefa) => (
+                <div key={tarefa.id_tarefa} className='container-tarefas'>
+                  <div className='unq-tarefa'>
+                    <p className='tarefa-titulo'>{tarefa.titulo_tarefa}</p>
+                    <p className='tarefa-descricao'>{tarefa.descricao_tarefa}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            </>
+          )
+        }
         </div>
       </div>
-      <div className='div-tarefas'>
-        <div className='div-h1-tarefas'>
-          <h2>Minhas Tarefas</h2>
-        </div>
-      </div>
-    </div>
     </>
   )
 }
