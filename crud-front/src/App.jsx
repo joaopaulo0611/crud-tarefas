@@ -1,6 +1,9 @@
 import './App.css'
 import { useState, useEffect, useRef } from 'react'
 import axios from "axios"
+import { FaTrashAlt } from "react-icons/fa";
+import { TiPencil } from "react-icons/ti";
+
 
 function App() {
 
@@ -9,6 +12,7 @@ function App() {
   const [descricaoTarefa, setDescricaoTarefa] = useState('')
   const [loading, setLoading] = useState(false)
   const [tarefas, setTarefas] = useState([])
+  const [isEdit, setIsEdit] = useState(false);
 
 
   const fetchTarefas = async () => {
@@ -33,7 +37,7 @@ function App() {
     fetchTarefas()
   }, [])
 
-  const adicionarTarefa = async () => {
+  const addTarefa = async () => {
     setLoading(false);
     try {
       const reponse = await axios.post(`http://localhost:3000/tarefas`, {
@@ -51,7 +55,50 @@ function App() {
     finally {
       setLoading(false);
     }
+
   }
+
+  const handleEdit = async (tarefa) => {
+    console.log(tarefa)
+    setTituloTarefa(tarefa.titulo_tarefa)
+    setIdTarefa(tarefa.id_tarefa)
+    setDescricaoTarefa(tarefa.descricao_tarefa)
+    setIsEdit(true)
+  }
+
+  const editTarefa = async (id) => {
+
+    try {
+      const response = await axios.put(`http://localhost:3000/tarefas/${id}`, {
+        titulo_tarefa: tituloTarefa,
+        descricao_tarefa: descricaoTarefa,
+      })
+
+      setIsEdit(false)
+
+      setTituloTarefa(''),
+        setDescricaoTarefa('')
+
+      fetchTarefas()
+
+    }
+
+    catch (error) {
+      console.error('Erro ao adicionar tarefa', error)
+    }
+  }
+
+  const deleteTarefa = async (id) => {
+    try{
+      console.log(id)
+      const response = await axios.delete(`http://localhost:3000/tarefas/${id}`)
+      fetchTarefas()
+    }
+    catch(error){
+      console.error('Erro ao deletar tarefa', error)
+    }
+  }
+
 
   return (
     <>
@@ -64,7 +111,7 @@ function App() {
           </div>
           <div className='div-inputs'>
             <div className='div-input-titulo'>
-              <input type="text"
+              <textarea type="text"
                 name='titulo'
                 placeholder='Título'
                 className='input-titulo'
@@ -73,7 +120,7 @@ function App() {
                 required />
             </div>
             <div className='div-input-descricao'>
-              <input type="text"
+              <textarea type="text"
                 name='descricao'
                 placeholder='Descrição'
                 className='input-descricao'
@@ -83,8 +130,15 @@ function App() {
             </div>
           </div>
           <div className='div-btn-adicionar'>
-            <button className='btn-adicionar'
-              onClick={adicionarTarefa} >Adicionar</button>
+            {isEdit ? (
+              <>
+                <button className='btn-adicionar'
+                  onClick={() => editTarefa(idTarefa)} >Salvar</button>
+              </>
+            ) : (<>
+              <button className='btn-adicionar'
+                onClick={addTarefa} >Adicionar</button>
+            </>)}
           </div>
         </div>
         <div className='div-tarefas'>
@@ -95,19 +149,32 @@ function App() {
             <div></div>
           ) : (
             <>
-            <div>
-              {tarefas.map((tarefa) => (
-                <div key={tarefa.id_tarefa} className='container-tarefas'>
-                  <div className='unq-tarefa'>
-                    <p className='tarefa-titulo'>{tarefa.titulo_tarefa}</p>
-                    <p className='tarefa-descricao'>{tarefa.descricao_tarefa}</p>
+              <div>
+                {tarefas.map((tarefa) => (
+                  <div key={tarefa.id_tarefa} className='container-tarefas'>
+                    <div className='unq-tarefa'>
+                      <p className='tarefa-titulo'>{tarefa.titulo_tarefa}</p>
+                      <p className='tarefa-descricao'>{tarefa.descricao_tarefa}</p>
+                    </div>
+                    <div className='div-delete_edit'>
+
+                      <div>
+                        <button onClick={() => deleteTarefa(tarefa.id_tarefa)}>
+                          <FaTrashAlt />
+                        </button>
+                      </div>
+                      <div>
+                        <button onClick={() => handleEdit(tarefa)}>
+                          <TiPencil />
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
             </>
           )
-        }
+          }
         </div>
       </div>
     </>

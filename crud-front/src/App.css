@@ -17,22 +17,25 @@ html{
 }
 .h1-body{
     text-align: center;
+    color: rgb(100, 100, 100);
 }
 .div-container-main{
     display: grid;
     grid-area: 1 / 1 / span 4 / span 1;
+    margin-top: 5vh;
 }
 .div-inputs{
     display: grid;
-    margin-top: 10%;
+    margin-top: 50px;
 }
 .div-input-titulo{
     padding: 5px;
     width: 450px;
 }
 .input-titulo{
-    width: 450px;
-    height: 30px;
+    padding: 10px;
+    width: 435px;
+    height: 20px;
     border-radius: 5px;
     border: rgb(100, 100, 100) solid 2px;
 }
@@ -41,7 +44,8 @@ html{
     width: 450px;
 }
 .input-descricao{
-    width: 450px;
+    padding: 10px;
+    width: 435px;
     height: 200px;
     border-radius: 5px;
     border: rgb(100, 100, 100) solid 2px;
@@ -65,6 +69,7 @@ html{
     border-bottom: solid;
     width: 500px;
     text-align: center;
+    color: rgb(100, 100, 100);
 }
 .div-tarefas{
     padding: 5px 5px 5px 100px;
@@ -88,4 +93,7 @@ html{
 .tarefa-descricao{
     margin-left: 10px;
     font-weight: 300;
+}
+.div-delete_edit{
+    margin-left: 10px;
 }
