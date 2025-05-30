@@ -159,13 +159,13 @@ function App() {
                     <div className='div-delete_edit'>
 
                       <div>
-                        <button onClick={() => deleteTarefa(tarefa.id_tarefa)}>
-                          <FaTrashAlt />
+                        <button onClick={() => deleteTarefa(tarefa.id_tarefa)} className='btn-excluir'>
+                          <FaTrashAlt className='icon-trash'/>
                         </button>
                       </div>
                       <div>
-                        <button onClick={() => handleEdit(tarefa)}>
-                          <TiPencil />
+                        <button onClick={() => handleEdit(tarefa)} className='btn-editar'>
+                          <TiPencil className='icon-pencil' />
                         </button>
                       </div>
                     </div>

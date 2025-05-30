@@ -5,9 +5,9 @@ html{
   padding: 0;
   background: #5ce1e6;
   font-family: "Lexend Deca", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
 }
 .div-body{
     display: flex;
@@ -39,6 +39,12 @@ html{
     border-radius: 5px;
     border: rgb(100, 100, 100) solid 2px;
 }
+.input-titulo::placeholder{
+    font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
 .div-input-descricao{
     padding: 15px 5px 5px 5px;
     width: 450px;
@@ -51,7 +57,10 @@ html{
     border: rgb(100, 100, 100) solid 2px;
 }
 .input-descricao::placeholder{
-    text-align: to;
+    font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
 .div-btn-adicionar{
     padding: 10px 5px 5px 5px;
@@ -83,7 +92,7 @@ html{
     background-color: #ffffff;
     border-radius: 5px;
     padding-bottom: 1px;
-    width: 450px;
+    width: 400px;
 }
 .tarefa-titulo{
     margin-left: 10px;
@@ -96,4 +105,26 @@ html{
 }
 .div-delete_edit{
     margin-left: 10px;
+}
+.btn-excluir{
+    border: 0;
+    border-radius: 5px;
+    background-color: white;
+    width: 35px;
+    height: 35px;
+}
+.btn-editar{
+    margin-top: 5px;
+    border: 0;
+    border-radius: 5px;
+    background-color: white;
+    width: 35px;
+    height: 35px;
+}
+.icon-trash{
+    font-size: 15px;
+}
+.icon-pencil{
+    font-size: 20px;
+
 }
