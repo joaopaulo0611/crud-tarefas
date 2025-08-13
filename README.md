@@ -24,7 +24,10 @@ Tailwind (especificar se estiver usando)
 - npm i
 
 ### Back-End
-- 
+- npm init -y
+- npm install express cors postgres
+- npm install -D nodemon (opcional)
+
   
 
 
