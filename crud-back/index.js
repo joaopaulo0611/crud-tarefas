@@ -1,16 +1,12 @@
-// controller do back-end
 
-// importação 
 import express from 'express';
 import cors from 'cors';
 import DatabaseTarefas  from './database-postgres.js';
 
 const app = express();
 
-// importa a classe de musica, para pegar as funções da classe
 const database = new DatabaseTarefas();
 
-// configura o cors para não brecar meu front-end
 app.use(cors({
      origin: '*',
      methods: ['GET', 'POST', 'PUT', 'DELETE']
@@ -18,22 +14,15 @@ app.use(cors({
 
 app.use(express.json());
 
-// inicia o servidor na porta 3000
 app.listen(3000, () => {
      console.log('Servidor rodando na porta 3000');
 });
 
 
-//----------------ROTAS---DO---CRUD---------------------//
-
-//teste 
-
 app.get("/", (req, res) => {
      return res.send("teste");
 });
 
-
-// Criar (rota POST)
 app.post('/tarefas', async (req, res) => {
      try {
           const body = req.body;
@@ -46,7 +35,6 @@ app.post('/tarefas', async (req, res) => {
 });
 
 
-// Mostrar as musicas (rota GET)
 app.get('/tarefas', async (req, res) => {
      try {
           const tarefas = await database.listTarefas();
@@ -57,8 +45,6 @@ app.get('/tarefas', async (req, res) => {
      }
 });
 
-
-// Deletar musica (rota DELETE)
 
 app.delete("/tarefas/:id", async (req, res) => {
      try {
@@ -77,7 +63,6 @@ app.delete("/tarefas/:id", async (req, res) => {
 });
 
 
-// Atualizar musica (rota PUT)
 app.put('/tarefas/:id', async (req, res) => {
      try {
           const id_tarefa = req.params.id;
