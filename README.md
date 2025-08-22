@@ -7,9 +7,8 @@ Permite criar, visualizar, editar e excluir tarefas com título e descrição.
 
 ## Tecnologias utilizadas
 ### Front-End:
-Vite (React, Vue ou outro framework que você estiver usando)
-JavaScript/TypeScript
-Tailwind (especificar se estiver usando)
+- React
+- Tailwind 
 
 ### Back-End
 - Node.js
